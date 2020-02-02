@@ -2,7 +2,7 @@ class BankAccount
 
 	attr_accessor :balance
 
-	@@interest_rate = 13.5
+	@@interest_rate = 1.01
 	@@accounts = []
 
 	def initialize
@@ -26,14 +26,14 @@ class BankAccount
 	def self.total_funds
 		total = 0
 		@@accounts.each do |t|
-			total += @balance
+			total += t.balance
 		end
 		return total
 	end
 
 	def self.interest_time
 		@@accounts.each do |i|
-			@balance *= @@interest_rate
+			i.balance *= @@interest_rate
 		end
 	end
 
